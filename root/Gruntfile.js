@@ -36,7 +36,7 @@ module.exports = function(grunt) {
         src: ['src/tmp/<%= pkg.name %>.concat.<%= pkg.version %>.jsx'],
         dest: 'src/tmp/<%= pkg.name %>.concat.wrap.<%= pkg.version %>.jsx',
         options: {
-          wrapper: ['//before\n', '\n//after']
+          wrapper: ['(function(thisObj) {', '})(this);\n']
         },
       },
     },

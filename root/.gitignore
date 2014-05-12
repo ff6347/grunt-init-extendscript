@@ -1,0 +1,6 @@
+.DS_Store
+build-tmp/
+*.sublime-workspace
+*.sublime-project
+node_modules/
+bower_components/
