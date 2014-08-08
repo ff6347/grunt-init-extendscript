@@ -105,6 +105,10 @@ exports.template = function (grunt, init, done) {
       // npm_test: 'grunt qunit',
       // TODO: pull from grunt's package.json
       node_version: '>= 0.10.0',
+        "repository": {
+      "type": "git",
+      "url": "git@github.com:"+ props.author_name + "/"+props.name + ".git"
+      },
       devDependencies: {
          "load-grunt-tasks": "~0.4.0",
          "grunt-contrib-copy": "~0.5.0",
