@@ -46,7 +46,7 @@ module.exports = function(grunt) {
     }
 
   });
-
+  grunt.registerTask('build', ['concat:scripts', 'wrap:script','copy:script']);
   grunt.registerTask('default', ['watch']);
 
 };
