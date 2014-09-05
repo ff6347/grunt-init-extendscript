@@ -32,7 +32,7 @@ exports.after = 'You should now install project dependencies with _npm ' +
   'http://gruntjs.com/getting-started';
 
 // The actual init template.
-exports.template = function (grunt, init, done) {
+exports.template = function(grunt, init, done) {
 
   init.process({}, [
     // Prompt for these values.
@@ -52,14 +52,15 @@ exports.template = function (grunt, init, done) {
     init.prompt('bugs'),
     init.prompt('licenses', 'MIT'),
     init.prompt('author_name')
-  ], function (err, props) {
-    props.dom = false;// /y/i.test(props.dom);
-    props.min_concat = true;// /y/i.test(props.min_concat);
-    props.package_json = true;///y/i.test(props.package_json);
+  ], function(err, props) {
+    props.dom = false; // /y/i.test(props.dom);
+    props.min_concat = true; // /y/i.test(props.min_concat);
+    props.package_json = true; ///y/i.test(props.package_json);
     props.test_task = props.dom ? 'qunit' : 'nodeunit';
     props.file_name = props.package_json ? '<%= pkg.name %>' : 'FILE_NAME';
 
     // Find the first `preferred` item existing in `arr`.
+
     function prefer(arr, preferred) {
       for (var i = 0; i < preferred.length; i++) {
         if (arr.indexOf(preferred[i]) !== -1) {
@@ -73,7 +74,7 @@ exports.template = function (grunt, init, done) {
     var dirs = grunt.file.expand({
       filter: 'isDirectory'
     }, '*')
-      .map(function (d) {
+      .map(function(d) {
         return d.slice(0, -1);
       });
     props.lib_dir = prefer(dirs, ['src']);
@@ -97,56 +98,58 @@ exports.template = function (grunt, init, done) {
     // If is package_json true, generate package.json
     if (props.package_json) {
 
-    init.writePackageJSON('package.json', {
-      name: props.name,
-      title: props.title,
-      version: '0.1.0',
-        keywords: ["Adobe","Extendscript"],
-      // npm_test: 'grunt qunit',
-      // TODO: pull from grunt's package.json
-      node_version: '>= 0.10.0',
+      init.writePackageJSON('package.json', {
+        name: props.name,
+        title: props.title,
+        version: '0.1.0',
+        keywords: ["Adobe", "Extendscript"],
+        // npm_test: 'grunt qunit',
+        // TODO: pull from grunt's package.json
+        node_version: '>= 0.10.0',
         "repository": {
-      "type": "git",
-      "url": "git@github.com:"+ props.author_name + "/"+props.name + ".git"
-      },
-      devDependencies: {
-         "load-grunt-tasks": "~0.4.0",
-         "grunt-contrib-copy": "~0.5.0",
-         "grunt-contrib-concat": "~0.3.0",
-         "grunt-wrap": "~0.3.0",
-         "grunt-contrib-watch": "~0.6.1",
-         "grunt-contrib-uglify": "~0.4.0",
-         "grunt-json-minify": "^0.4.0"
-      },
-    });
-}
-      // var devDependencies = {
-      //   'grunt': '~0.4.2',
-      //   'grunt-contrib-jshint': '~0.7.2',
-      //   'grunt-contrib-watch': '~0.5.3',
-      //   "load-grunt-tasks": "~0.4.0",
-      //   "grunt-contrib-copy": "~0.5.0",
-      //   "grunt-wrap": "~0.3.0",
-      //   "grunt-json-minify": "^0.4.0"
+          "type": "git",
+          "url": "git@github.com:" + props.author_name + "/" + props.name + ".git"
+        },
+        devDependencies: {
+          "load-grunt-tasks": "~0.4.0",
+          "grunt-contrib-compress": "^0.11.0",
+          "grunt-contrib-copy": "~0.5.0",
+          "grunt-contrib-concat": "~0.3.0",
+          "grunt-wrap": "~0.3.0",
+          "grunt-contrib-watch": "~0.6.1",
+          "grunt-contrib-uglify": "~0.4.0",
+          "grunt-json-minify": "^0.4.0",
+          "grunt-markdown": "^0.6.1",
+        }
+      });
+    }
+    // var devDependencies = {
+    //   'grunt': '~0.4.2',
+    //   'grunt-contrib-jshint': '~0.7.2',
+    //   'grunt-contrib-watch': '~0.5.3',
+    //   "load-grunt-tasks": "~0.4.0",
+    //   "grunt-contrib-copy": "~0.5.0",
+    //   "grunt-wrap": "~0.3.0",
+    //   "grunt-json-minify": "^0.4.0"
 
-      // };
+    // };
 
-      // if (props.dom) {
-      //   devDependencies['grunt-contrib-qunit'] = '~0.3.0';
-      // } else {
-      //   devDependencies['grunt-contrib-nodeunit'] = '~0.2.2';
-      // }
+    // if (props.dom) {
+    //   devDependencies['grunt-contrib-qunit'] = '~0.3.0';
+    // } else {
+    //   devDependencies['grunt-contrib-nodeunit'] = '~0.2.2';
+    // }
 
-      // if (props.min_concat) {
-      //   devDependencies['grunt-contrib-concat'] = '~0.3.0';
-      //   // devDependencies['grunt-contrib-uglify'] = '~0.2.7';
-      // }
+    // if (props.min_concat) {
+    //   devDependencies['grunt-contrib-concat'] = '~0.3.0';
+    //   // devDependencies['grunt-contrib-uglify'] = '~0.2.7';
+    // }
 
-      // // Generate package.json file, used by npm and grunt.
-      // init.writePackageJSON('package.json', {
-      //   node_version: '>= 0.10.0',
-      //   devDependencies: devDependencies
-      // });
+    // // Generate package.json file, used by npm and grunt.
+    // init.writePackageJSON('package.json', {
+    //   node_version: '>= 0.10.0',
+    //   devDependencies: devDependencies
+    // });
     // }
 
     // All done!
