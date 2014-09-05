@@ -25,6 +25,8 @@ grunt-init extendscript
 
 _Note that this template will generate files in the current directory, so be sure to change to a new directory first if you don't want to overwrite existing files._
 
+![](root/src/docs/assets/images/img.gif)  
+
 ## License  
 
 Copyright (c)  2014 Fabian "fabiantheblind" Morón Zirfas  
