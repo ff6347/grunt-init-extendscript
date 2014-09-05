@@ -80,10 +80,10 @@ exports.template = function (grunt, init, done) {
     // props.test_dir = prefer(dirs, ['test', 'tests', 'unit', 'spec']);
 
     // Maybe this should be extended to support more libraries.Patches welcome!
-    props.jquery = grunt.file.expand({
-      filter: 'isFile'
-    }, '**/jquery*.js')
-      .length > 0;
+    // props.jquery = grunt.file.expand({
+    //   filter: 'isFile'
+    // }, '**/jquery*.js')
+    //   .length > 0;
 
     // Files to copy (and process).
     var files = init.filesToCopy(props);
