@@ -1,4 +1,8 @@
 /*global module:false*/
+
+var now = new Date();
+
+
 module.exports = function(grunt) {
   require('load-grunt-tasks')(grunt);
 
