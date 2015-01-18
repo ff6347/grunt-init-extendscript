@@ -82,7 +82,7 @@ module.exports = function(grunt) {
     compress: {
   main: {
     options: {
-      archive: 'zips/el-parallaxo.zip'
+      archive: 'zips/<%= pkg.name %>.<%= pkg.version %>.zip'
     },
     files: [
       // {src: ['path/*'], dest: 'internal_folder/', filter: 'isFile'}, // includes files in path
