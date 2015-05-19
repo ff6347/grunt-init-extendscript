@@ -98,7 +98,7 @@ module.exports = function(grunt) {
     compress: {
       main: {
         options: {
-          archive: 'zips/<%= pkg.name %>.zip'
+          archive: 'zips/<%= pkg.name %>.<%= pkg.version %>.zip'
         },
         files: [
           // {src: ['path/*'], dest: 'internal_folder/', filter: 'isFile'}, // includes files in path
@@ -110,7 +110,7 @@ module.exports = function(grunt) {
           // {flatten: true, src: ['path/**'], dest: 'internal_folder4/', filter: 'isFile'} // flattens results to a single level
         ]
       }
-    },
+    }
   });
   grunt.registerTask('build', ['file-creator:basic','concat:scripts', 'wrap:script', 'copy:script', 'markdown:all', 'copy:docs', 'compress:main']);
   grunt.registerTask('build-docs', ['markdown:all', 'copy:docs']);
