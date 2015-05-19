@@ -111,15 +111,21 @@ exports.template = function(grunt, init, done) {
           "url": "git@github.com:" + props.author_name + "/" + props.name + ".git"
         },
         devDependencies: {
-          "load-grunt-tasks": "~0.4.0",
+          "grunt": "~0.4.2",
+          "grunt-contrib-clean": "^0.6.0",
           "grunt-contrib-compress": "^0.11.0",
+          "grunt-contrib-concat": "^0.3.0",
           "grunt-contrib-copy": "~0.5.0",
-          "grunt-contrib-concat": "~0.3.0",
-          "grunt-wrap": "~0.3.0",
-          "grunt-contrib-watch": "~0.6.1",
-          "grunt-contrib-uglify": "~0.4.0",
-          "grunt-json-minify": "^0.4.0",
+          "grunt-contrib-uglify": "^0.3.3",
+          "grunt-contrib-watch": "^0.5.3",
+          "grunt-exec": "^0.4.6",
+          "grunt-file-creator": "^0.1.2",
+          "grunt-json-minify": "~0.4.0",
           "grunt-markdown": "^0.6.1",
+          "grunt-notify": "^0.2.20",
+          "grunt-wrap": "~0.3.0",
+          "load-grunt-tasks": "^0.2.1"
+
         }
       });
     }
