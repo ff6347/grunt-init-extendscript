@@ -101,7 +101,7 @@ exports.template = function(grunt, init, done) {
       init.writePackageJSON('package.json', {
         name: props.name,
         title: props.title,
-        version: '0.1.0',
+        version: props.version,
         keywords: ["Adobe", "Extendscript"],
         // npm_test: 'grunt qunit',
         // TODO: pull from grunt's package.json
