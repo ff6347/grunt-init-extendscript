@@ -51,7 +51,9 @@ exports.template = function(grunt, init, done) {
     init.prompt('homepage'),
     init.prompt('bugs'),
     init.prompt('licenses', 'MIT'),
-    init.prompt('author_name')
+    init.prompt('author_name'),
+    init.prompt('author_email'),
+    init.prompt('author_url'),
   ], function(err, props) {
     props.dom = false; // /y/i.test(props.dom);
     props.min_concat = true; // /y/i.test(props.min_concat);
@@ -72,8 +74,8 @@ exports.template = function(grunt, init, done) {
 
     // Guess at some directories, if they exist.
     var dirs = grunt.file.expand({
-      filter: 'isDirectory'
-    }, '*')
+        filter: 'isDirectory'
+      }, '*')
       .map(function(d) {
         return d.slice(0, -1);
       });
@@ -110,7 +112,15 @@ exports.template = function(grunt, init, done) {
           "type": "git",
           "url": "git@github.com:" + props.author_name + "/" + props.name + ".git"
         },
+        author: {
+          "name": props.author_name,
+          "email": props.author_email,
+          "url": props.author_url
+        },
+        license: props.license,
+
         devDependencies: {
+          "jsesc": "^0.5.0",
           "grunt": "~0.4.2",
           "grunt-contrib-clean": "^0.6.0",
           "grunt-contrib-compress": "^0.11.0",
@@ -119,12 +129,14 @@ exports.template = function(grunt, init, done) {
           "grunt-contrib-uglify": "^0.3.3",
           "grunt-contrib-watch": "^0.5.3",
           "grunt-exec": "^0.4.6",
+          "grunt-execute": "^0.2.2",
           "grunt-file-creator": "^0.1.2",
           "grunt-json-minify": "~0.4.0",
           "grunt-markdown": "^0.6.1",
           "grunt-notify": "^0.2.20",
           "grunt-wrap": "~0.3.0",
           "load-grunt-tasks": "^0.2.1"
+
 
         }
       });
