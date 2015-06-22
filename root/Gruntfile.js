@@ -22,6 +22,11 @@ module.exports = function(grunt) {
         }
       }
     },
+    execute: {
+      helptext: {
+        src: ["bin/escapeStrings/index.jsx"]
+      }
+    },
     concat: {
       options: {
 
@@ -112,7 +117,7 @@ module.exports = function(grunt) {
       }
     }
   });
-  grunt.registerTask('build', ['file-creator:basic','concat:scripts', 'wrap:script', 'copy:script', 'markdown:all', 'copy:docs', 'compress:main']);
+  grunt.registerTask('build', ['file-creator:basic', 'concat:scripts', 'wrap:script', 'copy:script', 'markdown:all', 'copy:docs', 'compress:main']);
   grunt.registerTask('build-docs', ['markdown:all', 'copy:docs']);
   grunt.registerTask('default', ['watch']);
 
